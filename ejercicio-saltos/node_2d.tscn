@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://d1adgjbdphd6i"]
+
+[ext_resource type="Texture2D" uid="uid://d08m43nfn01kl" path="res://icon.svg" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://ba1elfalb82ab" path="res://character_body_2d.gd" id="2_epypp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
+size = Vector2(264, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aui74"]
+size = Vector2(10, 10)
+
+[node name="Node2D" type="Node2D" unique_id=58654752]
+
+[node name="Suelo" type="StaticBody2D" parent="." unique_id=778957763]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo" unique_id=679141060]
+position = Vector2(117, 34)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo" unique_id=1896041450]
+position = Vector2(117, 34)
+scale = Vector2(2.0625, 0.24999997)
+texture = ExtResource("1_0e48y")
+
+[node name="Personaje" type="CharacterBody2D" parent="." unique_id=821798586]
+script = ExtResource("2_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Personaje" unique_id=1803503955]
+shape = SubResource("RectangleShape2D_aui74")
+
+[node name="Sprite2D" type="Sprite2D" parent="Personaje" unique_id=4053298]
+scale = Vector2(0.07812496, 0.07812501)
+texture = ExtResource("1_0e48y")
+
+[node name="Camera2D" type="Camera2D" parent="Personaje" unique_id=1483645491]
+zoom = Vector2(4, 4)
