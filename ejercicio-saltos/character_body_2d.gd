@@ -13,8 +13,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("arriba") and is_on_floor(): #si acabo de pulsar la flecha de arriba y estoy en el suelo salto
 		velocity.y = JUMP_VELOCITY #ajusto la cantidad del salto en el vector y 
 		
-	if Input.is_action_just_pressed("espacio"):
+	if Input.is_action_just_pressed("espacio") and Input.is_action_pressed("derecha"):
 		position.x += TELEPORT_DISTANCE
+	
+	if Input.is_action_just_pressed("espacio") and Input.is_action_pressed("izquierda"):
+		position.x -= TELEPORT_DISTANCE
+	
 
 	var direction := Input.get_axis("ui_left", "ui_right") #devuelve direction (-1 izq o 1 derecha) 
 	if direction:
